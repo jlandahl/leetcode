@@ -2,7 +2,7 @@ package leetcode
 
 object LongestPalindromicSubstring {
   def main(args: Array[String]): Unit = {
-    println(longestPalindrome("babad"))
+    println(menacher("babad"))
   }
 
   def longestPalindrome(s: String): String = {
@@ -28,5 +28,47 @@ object LongestPalindromicSubstring {
       expandFromCenter(i, i + 1)
     }
     s.substring(start, start + maxlen)
+  }
+
+  def menacher(s: String): String = {
+    val s2 = s.mkString("|", "|", "|")
+    val radii = Array.ofDim[Int](s2.length)
+    var center = 0
+    var radius = 0
+
+    while (center < s2.length) {
+      while (center-(radius+1) >= 0 && center+(radius+1) < s2.length && s2(center-(radius+1)) == s2(center+(radius+1))) {
+        radius += 1
+      }
+      radii.update(center, radius)
+
+      val oldCenter = center
+      val oldRadius = radius
+      center += 1
+      radius = 0
+      @annotation.tailrec
+      def loop(): Unit = {
+        if (center <= oldCenter + oldRadius) {
+          val mirroredCenter = oldCenter - (center - oldCenter)
+          val maxMirroredRadius = oldCenter + oldRadius - center
+          if (radii(mirroredCenter) < maxMirroredRadius) {
+            radii.update(center, radii(mirroredCenter))
+            center += 1
+            loop()
+          } else if (radii(mirroredCenter) > maxMirroredRadius) {
+            radii.update(center, maxMirroredRadius)
+            center += 1
+            loop()
+          } else {
+            radius = maxMirroredRadius
+          }
+        }
+      }
+      loop()
+    }
+
+    val max = radii.max
+    val index = radii.indexOf(max)
+    s2.substring(index - max, index + max + 1).replace("|", "")
   }
 }
