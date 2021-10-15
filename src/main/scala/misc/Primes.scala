@@ -23,9 +23,7 @@ object Primes extends App {
     (2 to n).foreach { i =>
       if (isPrime.get(i)) {
         primes.addOne(i)
-        ((i * i) to n by i).foreach { j =>
-          isPrime.clear(j)
-        }
+        ((i * i) to n by i).foreach(isPrime.clear)
       }
     }
     primes.toSeq
