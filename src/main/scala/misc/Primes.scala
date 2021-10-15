@@ -16,14 +16,15 @@ object Primes extends App {
    */
   def sieve(n: Int): Seq[Int] = {
     val primes = collection.mutable.ListBuffer.empty[Int]
-    val isPrime = Array.fill(n + 1)(true)
-    isPrime(0) = false
-    isPrime(1) = false
+
+    val isPrime = new java.util.BitSet(n)
+    isPrime.set(2, isPrime.size())  // start with 2..n set to true
+
     (2 to n).foreach { i =>
-      if (isPrime(i)) {
+      if (isPrime.get(i)) {
         primes.addOne(i)
         ((i * i) to n by i).foreach { j =>
-          isPrime(j) = false
+          isPrime.clear(j)
         }
       }
     }
