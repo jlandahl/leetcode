@@ -2,18 +2,14 @@ package leetcode
 
 object MoveZeroes extends App {
   def moveZeroes(nums: Array[Int]): Unit = {
-    val result = Array.ofDim[Int](nums.length)
-    var zeroes = 0
+    var lastNonZero = 0
     nums.indices.foreach { i =>
-      if (nums(i) == 0) {
-        zeroes += 1
-        result(nums.length - zeroes) = nums(i)
-      } else {
-        result(i - zeroes) = nums(i)
+      if (nums(i) != 0) {
+        val temp = nums(i)
+        nums(i) = nums(lastNonZero)
+        nums(lastNonZero) = temp
+        lastNonZero += 1
       }
-    }
-    nums.indices.foreach { i =>
-      nums(i) = result(i)
     }
   }
 
