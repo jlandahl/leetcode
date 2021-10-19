@@ -15,23 +15,23 @@ object Primes extends App {
   /*
     Sieve of Eratosthenes up to n
    */
-  def sieve(n: Int): Seq[Int] = {
-    val primes = collection.mutable.ListBuffer.empty[Int]
-
+  def sieve(n: Int): java.util.BitSet = {
     val isPrime = new java.util.BitSet(n)
     isPrime.set(2, n)  // start with 2..n set to true
 
-    (2 to n).foreach { i =>
-      if (isPrime.get(i)) {
-        primes.addOne(i)
-        ((i * i) to n by i).foreach(isPrime.clear)
+    var i = 2L
+    while (i * i <= n) {
+      if (isPrime.get(i.toInt)) {
+        ((i * i) to n by i).foreach(j => isPrime.clear(j.toInt))
       }
+      i += 1
     }
-    primes.toSeq
+    isPrime
   }
 
   println(primes.takeWhile(_ <= 12).toList) // List(2, 3, 5, 7, 11)
   println(primeCount(12)) // 5
 
-  println(sieve(12)) // List(2, 3, 5, 7, 11)
+  println(sieve(12)) // {2, 3, 5, 7, 11}
+  println(sieve(12).cardinality()) // 5
 }
