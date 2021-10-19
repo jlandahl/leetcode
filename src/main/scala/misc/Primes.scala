@@ -1,6 +1,7 @@
 package misc
 
 object Primes extends App {
+  // Lazy list of primes computed by brute force
   val primes: LazyList[Int] =
     2 #:: LazyList.from(3, 2).filter(n => primes.takeWhile(p => p * p <= n).forall(p => n % p > 0))
 
@@ -18,7 +19,7 @@ object Primes extends App {
     val primes = collection.mutable.ListBuffer.empty[Int]
 
     val isPrime = new java.util.BitSet(n)
-    isPrime.set(2, isPrime.size())  // start with 2..n set to true
+    isPrime.set(2, n)  // start with 2..n set to true
 
     (2 to n).foreach { i =>
       if (isPrime.get(i)) {
