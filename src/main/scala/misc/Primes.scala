@@ -9,7 +9,7 @@ object Primes extends App {
    * Number of primes less than or equal to a given number
    */
   def primeCount(n: Int): Int = {
-    primes.takeWhile(_ <= n).size
+    sieve(n).cardinality()
   }
 
   /*
@@ -31,7 +31,4 @@ object Primes extends App {
 
   println(primes.takeWhile(_ <= 12).toList) // List(2, 3, 5, 7, 11)
   println(primeCount(12)) // 5
-
-  println(sieve(12)) // {2, 3, 5, 7, 11}
-  println(sieve(12).cardinality()) // 5
 }
