@@ -19,13 +19,17 @@ object Primes extends App {
     val isPrime = new java.util.BitSet(n)
     isPrime.set(2, n)  // start with 2..n set to true
 
-    var i = 2L
-    while (i * i <= n) {
-      if (isPrime.get(i.toInt)) {
-        ((i * i) to n by i).foreach(j => isPrime.clear(j.toInt))
+    @annotation.tailrec
+    def loop(i: Long): Unit = {
+      val isquared = i * i
+      if (isquared <= n) {
+        (isquared to n by i).foreach(j => isPrime.clear(j.toInt))
+        val next = isPrime.nextSetBit((i + 1).toInt)
+        if (next != -1)
+          loop(next)
       }
-      i += 1
     }
+    loop(2L)
     isPrime
   }
 
