@@ -20,16 +20,16 @@ object MedianSortedArrays {
     var j = 0
     merged.indices.foreach { k =>
       if (i >= nums1.length) {
-        merged.update(k, nums2(j))
+        merged(k) = nums2(j)
         j += 1
       } else if (j >= nums2.length) {
-        merged.update(k, nums1(i))
+        merged(k) = nums1(i)
         i += 1
       } else if (nums2(j) < nums1(i)) {
-        merged.update(k, nums2(j))
+        merged(k) = nums2(j)
         j += 1
       } else {
-        merged.update(k, nums1(i))
+        merged(k) = nums1(i)
         i += 1
       }
     }
