@@ -5,6 +5,8 @@ object LongestPalindromicSubstring {
     println(menacher("babad"))
   }
 
+  // Given a string s, return the longest palindromic substring in s.
+
   def longestPalindrome(s: String): String = {
     var maxlen = 0
     var start = 0

@@ -5,6 +5,8 @@ object LongestSubstringWithoutRepeats {
     println(lengthOfLongestSubstring("dvdf"))
   }
 
+  // Given a string s, find the length of the longest substring without repeating characters.
+
   def lengthOfLongestSubstring(s: String): Int = {
     val (_, _, len) = s.zipWithIndex.foldLeft(Map.empty[Char, Int], 0, 0) { case ((map, start, len), (c, i)) =>
       val pos = map.getOrElse(c, -1)
