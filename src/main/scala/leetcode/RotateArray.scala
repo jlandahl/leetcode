@@ -1,6 +1,8 @@
 package leetcode
 
 object RotateArray extends App {
+  // Given an array, rotate the array to the right by k steps, where k is non-negative.
+
   def rotate(nums: Array[Int], k: Int): Unit = {
     @annotation.tailrec
     def loop(i: Int, j: Int, result: Array[Int]): Array[Int] = {
@@ -16,9 +18,7 @@ object RotateArray extends App {
       }
     }
     val result = loop(0, k, Array.ofDim[Int](nums.length))
-    result.indices.foreach { i =>
-      nums.update(i, result(i))
-    }
+    result.indices.foreach { i => nums(i) = result(i) }
   }
 
   val array = Array(1, 2, 3, 4, 5, 6, 7)
