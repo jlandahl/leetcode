@@ -21,10 +21,10 @@ object SquaresSortedArray {
         result
       } else {
         if (squared(left) > squared(right)) {
-          result.update(curr, squared(left))
-          loop(left + 1, right, curr -1, result)
+          result(curr) = squared(left)
+          loop(left + 1, right, curr - 1, result)
         } else {
-          result.update(curr, squared(right))
+          result(curr) = squared(right)
           loop(left, right - 1, curr - 1, result)
         }
       }
