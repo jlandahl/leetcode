@@ -9,6 +9,11 @@ object MedianSortedArrays {
     println(time)
   }
 
+  // Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median
+  // of the two sorted arrays.
+  //
+  // The overall run time complexity should be O(log (m+n)).
+
   def findMedianSortedArrays(nums1: Array[Int], nums2: Array[Int]): Double = {
     val merged = Array.ofDim[Int](nums1.length + nums2.length)
     var i = 0
