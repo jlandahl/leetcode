@@ -35,4 +35,12 @@ object Primes extends App {
 
   println(primes.takeWhile(_ <= 12).toList) // List(2, 3, 5, 7, 11)
   println(primeCount(12)) // 5
+
+  val time1 = System.currentTimeMillis()
+  primeCount(1000000)
+  println(System.currentTimeMillis() - time1)
+
+  val time2 = System.currentTimeMillis()
+  primes.takeWhile(_ <= 1000000).size
+  println(System.currentTimeMillis() - time2)
 }
