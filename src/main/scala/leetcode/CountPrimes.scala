@@ -30,5 +30,7 @@ object CountPrimes extends App {
   println(countPrimes(3))
   println(countPrimes(4))
   println(countPrimes(6))
-  println(countPrimes(1000000))
+  val time = System.currentTimeMillis()
+  println(countPrimes(1_000_000_000))
+  println(System.currentTimeMillis() - time)
 }
