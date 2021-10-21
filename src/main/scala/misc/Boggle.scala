@@ -12,7 +12,13 @@ package misc
 object Boggle {
 
   def main(args: Array[String]): Unit = {
-    choices(0, 0).foreach(println)
+    val letters = Array(
+      Array('O', 'A', 'A', 'N'),
+      Array('E', 'T', 'A', 'E'),
+      Array('I', 'H', 'K', 'R'),
+      Array('I', 'F', 'L', 'V')
+    )
+    println(find("OAT", letters))
   }
 
   def find(word: String, letters: Array[Array[Char]]): Boolean = {
