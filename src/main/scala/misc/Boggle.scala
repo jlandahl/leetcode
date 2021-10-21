@@ -18,7 +18,11 @@ object Boggle {
       Array('I', 'H', 'K', 'R'),
       Array('I', 'F', 'L', 'V')
     )
-    println(find("OAT", letters))
+    println(find("OAT", letters))    // true
+    println(find("OATS", letters))   // false
+    println(find("THEIF", letters))  // true
+    println(find("TAKER", letters))  // true
+    println(find("ZOO", letters))    // false
   }
 
   def find(word: String, letters: Array[Array[Char]]): Boolean = {
@@ -26,7 +30,7 @@ object Boggle {
       if (row >= 0 && row < letters.length && col >= 0 && col < letters(0).length) {
         if (i < word.length) {
           if (word(i) == letters(row)(col)) {
-            choices(row, col).exists { case (rowDelta, colDelta) => loop(i + 1, row + rowDelta, col + colDelta) }
+            choices(row, col).exists { case (r, c) => loop(i + 1, r, c) }
           } else {
             false
           }
