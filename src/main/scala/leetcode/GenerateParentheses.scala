@@ -6,8 +6,6 @@ object GenerateParentheses extends App {
   def generateParenthesis(n: Int): List[String] = {
     import collection.mutable
 
-    val result = mutable.ListBuffer.empty[String]
-
     def generate(result: mutable.ListBuffer[String], cur: mutable.StringBuilder, open: Int, close: Int): Unit = {
       if (cur.size  == n * 2) {
         result.addOne(cur.toString())
@@ -24,6 +22,8 @@ object GenerateParentheses extends App {
         }
       }
     }
+
+    val result = mutable.ListBuffer.empty[String]
     generate(result, new mutable.StringBuilder, 0, 0)
     result.toList
   }
