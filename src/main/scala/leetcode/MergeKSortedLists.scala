@@ -1,6 +1,6 @@
 package leetcode
 
-object MergeSortedLists extends App {
+object MergeKSortedLists extends App {
   class ListNode(_x: Int = 0, _next: ListNode = null) {
     var next: ListNode = _next
     var x: Int = _x
