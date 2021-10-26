@@ -11,6 +11,29 @@ object MergeSortedLists extends App {
   // Merge all the linked-lists into one sorted linked-list and return it.
 
   def mergeKLists(lists: Array[ListNode]): ListNode = {
+    import collection.mutable
+
+    implicit val ordering: Ordering[ListNode] = (a: ListNode, b: ListNode) => b.x - a.x
+    val pq = mutable.PriorityQueue.empty[ListNode]
+
+    // Add each head to the priority queue
+    lists.filter(_ != null).foreach(pq.addOne)
+
+    // Start off with a dummy node
+    val head = new ListNode(0)
+    var tail = head
+
+    while (pq.nonEmpty) {
+      tail.next = pq.dequeue()
+      tail = tail.next
+      if (tail.next != null)
+        pq.addOne(tail.next)
+    }
+
+    head.next
+  }
+
+  def mergeKLists0(lists: Array[ListNode]): ListNode = {
     @annotation.tailrec
     def findSmallestNode(smallestNode: Option[(Int, ListNode)], i: Int): Option[(Int, ListNode)] = {
       if (i >= lists.length) {
