@@ -6,6 +6,9 @@ object MergeTwoSortedLists extends App {
     var x: Int = _x
   }
 
+  // Merge two sorted linked lists and return it as a sorted list. The list should be made
+  // by splicing together the nodes of the first two lists.
+
   def mergeTwoLists(l1: ListNode, l2: ListNode): ListNode = {
     @annotation.tailrec
     def loop(tail: ListNode, l1: ListNode, l2: ListNode): Unit = {
