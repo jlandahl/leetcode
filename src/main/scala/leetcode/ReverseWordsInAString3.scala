@@ -1,6 +1,10 @@
 package leetcode
 
 object ReverseWordsInAString3 extends App {
+
+  // Given a string s, reverse the order of characters in each word within a sentence while
+  // still preserving whitespace and initial word order.
+
   def reverseWords(s: String): String = {
     @annotation.tailrec
     def reverseWord(arr: Array[Char], left: Int, right: Int): Unit = {
@@ -32,5 +36,5 @@ object ReverseWordsInAString3 extends App {
     arr.mkString
   }
 
-  println(reverseWords("Let's take LeetCode contest"))
+  assert(reverseWords("Let's take LeetCode contest") == "s'teL ekat edoCteeL tsetnoc")
 }
