@@ -7,7 +7,7 @@ object GenerateParentheses extends App {
     import collection.mutable
 
     def generate(result: mutable.ListBuffer[String], cur: mutable.StringBuilder, open: Int, close: Int): Unit = {
-      if (cur.size  == n * 2) {
+      if (cur.size == n * 2) {
         result.addOne(cur.toString())
       } else {
         if (open < n) {
