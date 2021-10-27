@@ -1,11 +1,6 @@
 package leetcode
 
 object MergeKSortedLists extends App {
-  class ListNode(_x: Int = 0, _next: ListNode = null) {
-    var next: ListNode = _next
-    var x: Int = _x
-  }
-
   // You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
   //
   // Merge all the linked-lists into one sorted linked-list and return it.
@@ -75,22 +70,12 @@ object MergeKSortedLists extends App {
     loop(null, null)
   }
 
-  def toList(head: ListNode): List[Int] = {
-    val l = collection.mutable.ListBuffer.empty[Int]
-    var cur = head
-    while (cur != null) {
-      l.addOne(cur.x)
-      cur = cur.next
-    }
-    l.toList
-  }
-
   val arr1 = Array(
     new ListNode(1, new ListNode(4, new ListNode(5))),
     new ListNode(1, new ListNode(3, new ListNode(4))),
     new ListNode(2, new ListNode(6))
   )
 
-  println(toList(mergeKLists(arr1)))
-  println(toList(mergeKLists(Array.empty[ListNode])))
+  println(mergeKLists(arr1).toList)
+  println(mergeKLists(Array.empty[ListNode]).toList)
 }
