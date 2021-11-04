@@ -1,7 +1,6 @@
 package leetcode
 
-object ReverseWordsInAString3 extends App {
-
+object ReverseWordsInAString3 {
   // Given a string s, reverse the order of characters in each word within a sentence while
   // still preserving whitespace and initial word order.
 
@@ -35,6 +34,4 @@ object ReverseWordsInAString3 extends App {
     loop(arr, 0, 0)
     arr.mkString
   }
-
-  assert(reverseWords("Let's take LeetCode contest") == "s'teL ekat edoCteeL tsetnoc")
 }

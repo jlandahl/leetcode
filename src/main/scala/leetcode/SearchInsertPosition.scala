@@ -1,10 +1,6 @@
 package leetcode
 
 object SearchInsertPosition {
-  def main(args: Array[String]): Unit = {
-    println(searchInsert(Array(1, 2, 3, 7, 9, 10), 8))
-  }
-
   // Given a sorted array of distinct integers and a target value, return the index if the target
   // is found. If not, return the index where it would be if it were inserted in order.
   //

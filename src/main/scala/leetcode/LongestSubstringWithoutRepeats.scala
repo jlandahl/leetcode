@@ -1,10 +1,6 @@
 package leetcode
 
 object LongestSubstringWithoutRepeats {
-  def main(args: Array[String]): Unit = {
-    println(lengthOfLongestSubstring("dvdf"))
-  }
-
   // Given a string s, find the length of the longest substring without repeating characters.
 
   def lengthOfLongestSubstring(s: String): Int = {

@@ -1,6 +1,6 @@
 package leetcode
 
-object MergeTwoSortedLists extends App {
+object MergeTwoSortedLists {
   // Merge two sorted linked lists and return it as a sorted list. The list should be made
   // by splicing together the nodes of the first two lists.
 
@@ -29,9 +29,4 @@ object MergeTwoSortedLists extends App {
     loop(head, l1, l2)
     head.next
   }
-
-  val l1 = new ListNode(1, new ListNode(2, new ListNode(4)))
-  val l2 = new ListNode(1, new ListNode(3, new ListNode(4)))
-
-  println(mergeTwoLists(l1, l2).toList)
 }

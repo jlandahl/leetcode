@@ -1,10 +1,10 @@
 package leetcode
 
-object MoveZeroes extends App {
+object MoveZeroes {
   // Given an integer array nums, move all 0's to the end of it while maintaining the relative
   // order of the non-zero elements.
   //
-  //Note that you must do this in-place without making a copy of the array.
+  // Note that you must do this in-place without making a copy of the array.
 
   def moveZeroes(nums: Array[Int]): Unit = {
     var lastNonZero = 0
@@ -17,8 +17,4 @@ object MoveZeroes extends App {
       }
     }
   }
-
-  val a = Array(0,1,0,3,12)
-  moveZeroes(a)
-  println(a.toList)
 }

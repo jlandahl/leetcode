@@ -1,6 +1,6 @@
 package leetcode
 
-object AddTwoNumbers extends App {
+object AddTwoNumbers {
   // You are given two non-empty linked lists representing two non-negative integers.
   // The digits are stored in reverse order, and each of their nodes contains a single digit.
   // Add the two numbers and return the sum as a linked list.
@@ -20,20 +20,4 @@ object AddTwoNumbers extends App {
     }
     addTwoNumbers(l1, l2, 0)
   }
-
-  val l1 =
-    new ListNode(9,
-      new ListNode(9,
-        new ListNode(9,
-          new ListNode(9,
-            new ListNode(9,
-              new ListNode(9,
-                new ListNode(9)))))))
-  val l2 =
-    new ListNode(9,
-      new ListNode(9,
-        new ListNode(9,
-          new ListNode(9))))
-
-  println(addTwoNumbers(l1, l2).toList)
 }

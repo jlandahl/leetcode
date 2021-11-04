@@ -1,10 +1,6 @@
 package leetcode
 
 object LongestPalindromicSubstring {
-  def main(args: Array[String]): Unit = {
-    println(menacher("babad"))
-  }
-
   // Given a string s, return the longest palindromic substring in s.
 
   def longestPalindrome(s: String): String = {

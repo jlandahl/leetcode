@@ -1,7 +1,8 @@
 package leetcode
 
-object GenerateParentheses extends App {
-  // Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+object GenerateParentheses {
+  // Given n pairs of parentheses, write a function to generate all combinations of
+  // well-formed parentheses.
 
   def generateParenthesis(n: Int): List[String] = {
     import collection.mutable
@@ -27,7 +28,4 @@ object GenerateParentheses extends App {
     generate(result, new mutable.StringBuilder, 0, 0)
     result.toList
   }
-
-  println(generateParenthesis(3))
-  println(generateParenthesis(1))
 }

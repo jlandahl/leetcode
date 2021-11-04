@@ -1,6 +1,6 @@
 package leetcode
 
-object MergeKSortedLists extends App {
+object MergeKSortedLists {
   // You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
   //
   // Merge all the linked-lists into one sorted linked-list and return it.
@@ -69,13 +69,4 @@ object MergeKSortedLists extends App {
 
     loop(null, null)
   }
-
-  val arr1 = Array(
-    new ListNode(1, new ListNode(4, new ListNode(5))),
-    new ListNode(1, new ListNode(3, new ListNode(4))),
-    new ListNode(2, new ListNode(6))
-  )
-
-  println(mergeKLists(arr1).toList)
-  println(mergeKLists(Array.empty[ListNode]).toList)
 }

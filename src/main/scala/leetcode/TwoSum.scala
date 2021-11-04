@@ -1,6 +1,6 @@
 package leetcode
 
-object TwoSum extends App {
+object TwoSum {
   // Given an array of integers nums and an integer target, return indices of the two numbers
   // such that they add up to target.
   //
@@ -28,6 +28,4 @@ object TwoSum extends App {
     }
     loop(0)
   }
-
-  println(twoSum(Array(1, 2, 3, 4, 5, 6, 7), 10).toList)
 }

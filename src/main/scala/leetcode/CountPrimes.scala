@@ -1,6 +1,6 @@
 package leetcode
 
-object CountPrimes extends App {
+object CountPrimes {
   // Given an integer n, return the number of prime numbers that are strictly less than n.
   def countPrimes(n: Int): Int = {
     if (n < 2) {
@@ -23,14 +23,4 @@ object CountPrimes extends App {
       isPrime.cardinality()
     }
   }
-
-  println(countPrimes(0))
-  println(countPrimes(1))
-  println(countPrimes(2))
-  println(countPrimes(3))
-  println(countPrimes(4))
-  println(countPrimes(6))
-  val time = System.currentTimeMillis()
-  println(countPrimes(1_000_000_000))
-  println(System.currentTimeMillis() - time)
 }

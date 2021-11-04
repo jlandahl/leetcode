@@ -1,6 +1,6 @@
 package leetcode
 
-object TwoSum2 extends App {
+object TwoSum2 {
   // Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order,
   // find two numbers such that they add up to a specific target number. Let these two numbers
   // be numbers[index1] and numbers[index2] where 1 <= first < second <= numbers.length.
@@ -43,8 +43,4 @@ object TwoSum2 extends App {
     }
     loop(0)
   }
-
-  println(twoSum(Array(2, 7, 11, 15), 9).toList)
-  println(twoSum(Array(2, 3, 4), 6).toList)
-  println(twoSum(Array(-1, 0), -1).toList)
 }
